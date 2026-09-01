@@ -10,6 +10,7 @@ _Senast uppdaterad: 2026-09-01_
 - Express-API (`GET /blockchain`, `POST /transactions`, `POST /mine`) med valideringsmiddleware
 - Strikt TDD: fyra red/green-commit-par, länkade i README
 - 25 tester gröna (Vitest + supertest)
+- TESTING.md med red-green-bevis per par, testsvitens struktur och manuell API-verifiering med verkliga svar (länkad från README)
 
 ## Coverage (`npm run coverage`)
 

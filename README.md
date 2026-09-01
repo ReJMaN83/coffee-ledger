@@ -67,7 +67,7 @@ Svårighetsgraden styrs i `Blockchain`-konstruktorn:
 
 ## Testning
 
-Testerna är skrivna med **Vitest** (enhetstester) och **supertest** (integrationstester mot Express-appen utan att starta en riktig server). API-testerna skapar en färsk app och blockkedja per test via `createApp()` så att inga tester delar state.
+Testerna är skrivna med **Vitest** (enhetstester) och **supertest** (integrationstester mot Express-appen utan att starta en riktig server). Se [TESTING.md](TESTING.md) för arbetssättet, red-green-bevisen per commit-par och den manuella verifieringen av API:et. API-testerna skapar en färsk app och blockkedja per test via `createApp()` så att inga tester delar state.
 
 Aktuell täckning (`npm run coverage`, v8):
 
