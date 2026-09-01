@@ -24,7 +24,7 @@ _Senast uppdaterad: 2026-09-01_
 ## Återstår (manuellt)
 
 - [ ] Lämna in på itslearning
-- [ ] Bjuda in läraren som collaborator på GitHub-repot
+- [x] Bjuda in läraren som collaborator på GitHub-repot (`postmodernistx` inbjuden 2026-09-01, väntar på accept)
 
 ## Nästa steg
 
