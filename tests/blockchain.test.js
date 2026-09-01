@@ -1,4 +1,4 @@
-import { describe, it, expect } from 'vitest'
+import { describe, it, expect, vi, afterEach } from 'vitest'
 import { Blockchain } from '../src/blockchain.js'
 import { calculateHash } from '../src/hash.js'
 
@@ -15,6 +15,26 @@ describe('Blockchain', () => {
   it('has difficulty 1 when NODE_ENV is test', () => {
     expect(process.env.NODE_ENV).toBe('test')
     expect(new Blockchain().difficulty).toBe(1)
+  })
+
+  describe('when NODE_ENV is not test', () => {
+    afterEach(() => {
+      vi.unstubAllEnvs()
+    })
+
+    it('uses the DIFFICULTY env variable when set', () => {
+      vi.stubEnv('NODE_ENV', 'production')
+      vi.stubEnv('DIFFICULTY', '3')
+
+      expect(new Blockchain().difficulty).toBe(3)
+    })
+
+    it('falls back to difficulty 2 when DIFFICULTY is not a number', () => {
+      vi.stubEnv('NODE_ENV', 'production')
+      vi.stubEnv('DIFFICULTY', '')
+
+      expect(new Blockchain().difficulty).toBe(2)
+    })
   })
 
   it('addTransaction adds the transaction to pendingTransactions', () => {

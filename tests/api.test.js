@@ -46,6 +46,13 @@ describe('Coffee Ledger API', () => {
       expect((await request(app).post('/transactions').send(noRecipient)).status).toBe(400)
     })
 
+    it('rejects a request without a body', async () => {
+      const res = await request(app).post('/transactions')
+
+      expect(res.status).toBe(400)
+      expect(res.body.error).toBeDefined()
+    })
+
     it('rejects a transaction where weightKg is not a positive number', async () => {
       expect(
         (await request(app).post('/transactions').send({ ...transaction, weightKg: -5 })).status
